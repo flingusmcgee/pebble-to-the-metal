@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1iductknuh4t"]
+
+[ext_resource type="Script" uid="uid://bp31kunt6qkdg" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bwjn12bk7qjxr" path="res://button.gd" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://cv77waqfwk212" path="res://assets/Backgrounds/Backgrounds/Comatose Dreamscape.png" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://cuwoeegn66mi5" path="res://assets/Backgrounds/Backgrounds/title.png" id="4_jix8l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 274.0
+offset_right = 1128.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 100
+text = "Start The Game!"
+script = ExtResource("2_7vrkn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 601.0
+offset_right = 1223.0
+offset_bottom = 678.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "How to play: use keyboard buttons to place towers on the map and defend yourself 
+against the rocks... Make Sure to not get overwhelmed!"
+horizontal_alignment = 1
+
+[node name="ComatoseDreamscape" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(652, 357)
+scale = Vector2(1.04375, 1.0916667)
+texture = ExtResource("3_fu7sn")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(642.5, 144.50002)
+scale = Vector2(1.1712964, 0.40694448)
+texture = ExtResource("4_jix8l")

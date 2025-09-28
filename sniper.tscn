@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxv3qfqnagaqf"]
+
+[ext_resource type="Script" uid="uid://cjffqo8407rg" path="res://sniper.gd" id="1_6jcko"]
+[ext_resource type="Texture2D" uid="uid://bikog8e5j7uvr" path="res://assets/towers/GameSprites/Sprites/SniperTower.png" id="2_okkp5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyhkq"]
+
+[node name="sniper" type="Node2D"]
+script = ExtResource("1_6jcko")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1000, 1000)
+shape = SubResource("CircleShape2D_pyhkq")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("2_okkp5")
+offset = Vector2(-5, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

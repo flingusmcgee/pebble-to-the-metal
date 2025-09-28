@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cos6il8stvikl"]
+
+[ext_resource type="Script" uid="uid://di58xaeiumak6" path="res://bomber.gd" id="1_al2qj"]
+[ext_resource type="Texture2D" uid="uid://b76msij8vwhmr" path="res://assets/towers/GameSprites/Sprites/CannonTower.png" id="2_al2qj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_al2qj"]
+
+[node name="Bomber" type="Node2D"]
+script = ExtResource("1_al2qj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_al2qj")
+
+[node name="Turret" type="Sprite2D" parent="."]
+position = Vector2(43, -2.0000014)
+scale = Vector2(2.330569, 2.3094122)
+texture = ExtResource("2_al2qj")
+offset = Vector2(-10, 0)
+
+[node name="Marker2D" type="Marker2D" parent="Turret"]
+position = Vector2(80, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

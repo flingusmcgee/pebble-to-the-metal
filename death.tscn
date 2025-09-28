@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c327gmoo53pqx"]
+
+[ext_resource type="Script" uid="uid://d4j54vjwwmaf5" path="res://deathbutt.gd" id="1_qemge"]
+[ext_resource type="Texture2D" uid="uid://bohjdamxiqt6r" path="res://assets/Backgrounds/Backgrounds/Devil Vortex.png" id="2_lf77f"]
+
+[node name="death" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 229.0
+offset_right = 1238.0
+offset_bottom = 298.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "The pebbles have invaded your personal space..."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 330.0
+offset_right = 906.0
+offset_bottom = 533.0
+theme_override_font_sizes/font_size = 50
+text = "Vengeance"
+script = ExtResource("1_qemge")
+
+[node name="DevilVortex" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(639, 342)
+scale = Vector2(1.0625, 1.1638889)
+texture = ExtResource("2_lf77f")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3tn85j620spl"]
+
+[ext_resource type="Script" uid="uid://dks3jfwyetw07" path="res://walker.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://duq108j6enlj6" path="res://assets/enemies/yhggbb.png" id="2_4gyqm"]
+[ext_resource type="Script" uid="uid://cd7obmu0hf24o" path="res://moneymaker.gd" id="3_qi2p4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+
+[node name="enemy" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_4gyqm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("2_4gyqm")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_qi2p4")
+
+[node name="HURTERDOUNDER" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.078
+
+[connection signal="killed" from="." to="Node2D" method="_on_enemy_killed"]

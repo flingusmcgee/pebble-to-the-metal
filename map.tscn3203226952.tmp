@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://ulyv6hidtvnj"]
+
+[ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://node_2d.tscn" id="1_c7s6e"]
+[ext_resource type="PackedScene" uid="uid://cos6il8stvikl" path="res://bomber.tscn" id="3_p5pve"]
+[ext_resource type="Script" uid="uid://dks3jfwyetw07" path="res://walker.gd" id="3_urblq"]
+[ext_resource type="PackedScene" uid="uid://d3tn85j620spl" path="res://enemy.tscn" id="4_iw27f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wijl4"]
+
+[sub_resource type="Curve2D" id="Curve2D_71pa8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 295, 0, 0, 0, 0, 539, 307, 0, 0, 0, 0, 551, 45, 0, 0, 0, 0, 342, 52, 0, 0, 0, 0, 349, 599, 0, 0, 0, 0, 108, 586, 0, 0, 0, 0, 107, 413, 0, 0, 0, 0, 715, 410, 0, 0, 0, 0, 705, 189, 0, 0, 0, 0, 874, 189, 0, 0, 0, 0, 1079, 185, 0, 0, 0, 0, 1064, 538, 0, 0, 0, 0, 747, 526, 0, 0, 0, 0, 747, 716)
+}
+point_count = 14
+
+[node name="Map" type="Node2D"]
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="Archer" parent="Towers" instance=ExtResource("1_c7s6e")]
+position = Vector2(585, 207)
+
+[node name="Bomber" parent="Towers" instance=ExtResource("3_p5pve")]
+position = Vector2(273, 206)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wijl4")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_71pa8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-1, 295)
+rotation = 0.022218565
+rotates = false
+script = ExtResource("3_urblq")
+
+[node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource("4_iw27f")]
